@@ -4,7 +4,7 @@
 <head>
 	
 	<!-- D3.js -->
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="d3.js" charset="utf-8"></script>
 	
 	<!-- Attach those styles -->
 	<link rel="stylesheet" href="styles.css">
@@ -12,6 +12,60 @@
 </head>
 
 <body>
+
+<div id = "explainer">
+	
+	<div class = "year" id = "2000">
+		<h2>2000</h2>
+		<p>During the Gore-Bush matchup, senators of both parties won frequently even when their state went for the other party in the presidential race.</p>
+		<p class = "aside"><strong>What you're seeing:</strong> A big mush. Since senatorial and presidential results don't share much of a correlation, there's not much of a pattern to see.</p>
+		<div class = "nav">
+			<div class = "next">Next</div>			
+		</diV>
+	</div>
+	<div class = "year" id = "2004">
+		<h2>2004</h2>
+		<p>In 2004, that changed. States began lining up along ideological lines, and once-popular senators began feeling the heat of national campaigns in their own districts.</p>
+		<p class = "aside"><strong>What you're seeing:</strong> The beginnings of a line forming from the bottom-left corner to the top right, showing a correlation forming.</p>
+		<div class = "nav">
+			<div class = "previous">Previous</div>			
+			<div class = "next">Next</div>			
+		</div>
+		
+	</div>
+	<div class = "year" id = "2008">
+		<h2>2008</h2>
+		<p>The next election was the same, if not worse. (A few outliers threw off the curve, including popular Arkansas incumbent Mark Pryor, who ran without a Republican opponent.)</p>
+		<p class = "aside"><strong>What you're seeing:</strong> That same line, but a bit stronger.</p>
+		<div class = "nav">
+			<div class = "previous">Previous</div>			
+			<div class = "next">Next</div>			
+		</div>
+	</div>
+	<div class = "year" id = "2012">
+		<h2>2012</h2>
+		<p>But 2012 was when the trend solidified, with the outcomes of Senate races showing the strongest correlation to the winner of the Obama-Romney contest (though independent candidate victories in Maine and Vermont bucked the trend.)</p>
+		<p class = "aside"><strong>What you're seeing:</strong> A definitive trendline with a few explainable outliers, showing a strong correlation.</p>
+		<div class = "nav">
+			<div class = "previous">Previous</div>			
+			<div class = "seeAll">See all</div>		
+		</div>
+	</div>
+	
+	<div class = "popup embed"></div>
+	
+</div>
+
+<div id = "container">
+<ul id = "legend">
+		<li id = "i145786">Dem. Senate win + Dem. presidential win</li>
+		<li id = "i76B6E3">Senate win + presidential loss</li>
+		<li id = "iEA7F83">Senate loss + presidential win</li>
+		<li id = "iEC2026">Senate loss + presidential loss</li>
+	</ul>
+</div>
+
+<div class = "popup float"></div>
 
 </body>
 
