@@ -10,11 +10,13 @@ var y = d3.scale.linear()
 
 var xAxis = d3.svg.axis()
 	.scale(x)
-	.orient("bottom");
-
+	.orient("bottom")
+	.tickFormat(d3.format("%"));
+	
 var yAxis = d3.svg.axis()
 	.scale(y)
-	.orient("left");
+	.orient("left")
+	.tickFormat(d3.format("%"));
 	
 var svg = d3.select("body").append("svg")
 	.attr("width", width + margin.left + margin.right)
@@ -26,9 +28,9 @@ d3.csv("data.csv", function(e, data){
 	if(e) console.log(e);
 	
 	data.forEach(function(datum){
-		datum.dem_vote = +datum.dem_vote * 100;
-		datum.rep_vote = +datum.rep_vote * 100;
-		datum.obama_vote = +datum.obama_vote * 100;
+		datum.dem_vote = +datum.dem_vote;
+		datum.rep_vote = +datum.rep_vote;
+		datum.obama_vote = +datum.obama_vote;
 	});
 	
 	x.domain(d3.extent(data, function(d) { return d.obama_vote; }));
@@ -43,7 +45,7 @@ d3.csv("data.csv", function(e, data){
 		.attr("x", width)
 		.attr("y", -6)
 		.style("text-anchor", "end")
-		.text("Percent of vote, Obama");
+		.text("Percent of vote, Democratic presidential candidate");
 	
 	svg.append("g")
 		.attr("class", "y axis")
@@ -60,10 +62,19 @@ d3.csv("data.csv", function(e, data){
 			.data(data)
 		.enter().append("circle")
 			.attr("class", "dot")
-			.attr("r", 3.5)
+			.attr("r", 5)
 			.attr("cx", function(d) { return x(d.obama_vote); })
 			.attr("cy", function(d) { return y(d.dem_vote); })
-			
+			.attr("fill", function(d) {
+				if( d.dem_vote > d.rep_vote ){
+					if( d.obama_vote > 50 ) return "#145786";
+					else return "#EA7F83"; 
+				}
+				else {
+					if( d.obama_vote > 50 ) return "#267EC1";
+					else return "#EC2026";
+				}
+			})
 	console.log(data);
 	
 })
