@@ -71,7 +71,12 @@ html,body {
 		padding:10px;
 
 	}
-	
+		
+		.year img {
+			max-width:100%;
+			margin:10px auto;
+		}
+		
 		.year h2 {
 			margin:0;
 		}
@@ -225,3 +230,33 @@ left: 50%;
 		.popup tr:last-child  td{
 			border-top: 1px solid lightgray;
 		}
+
+.mobile {
+	display:none;
+}
+
+@media screen and (max-width: 700px) {
+
+	.mobile {
+		display: block;
+	}
+
+	#container {
+		display:none;
+	}
+	
+	#explainer {
+		width:98%;
+		margin: auto;
+	}
+	
+	.desktop {
+		display:none;
+	}
+	
+	.year {
+		margin-bottom:20px;
+		background-color: white;
+	}
+	
+}
